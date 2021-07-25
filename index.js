@@ -10,6 +10,7 @@ const test = async () => {
 };
 
 try {
+  console.log("starting");
   // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput("who-to-greet");
   // console.log(`Hello ${nameToGreet}!`);
@@ -19,8 +20,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const number = github.context.issue.number;
   console.log({ number });
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  // const payload = JSON.stringify(github.context.payload, undefined, 2);
+  // console.log(`The event payload: ${payload}`);
 } catch (error) {
   // core.setFailed(error.message);
 }
