@@ -1,8 +1,8 @@
-name: "Wilco"
-description: "Run Wilco checks for this specific simulation"
+name: Wilco
+description: Run Wilco checks for this specific simulation
 inputs:
   wilcoId:
-    description: "Wilco user id"
+    description: Wilco user id
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: node12
+  main: dist/index.js
