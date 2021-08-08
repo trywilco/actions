@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx @vercel/ncc build && npx convert-action"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
