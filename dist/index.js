@@ -7583,11 +7583,9 @@ const exec = __nccwpck_require__(5697);
 const github = __nccwpck_require__(2970);
 
 const fetch = __nccwpck_require__(3154);
-const { promises: fs } = __nccwpck_require__(5747);
 
 const runActions = async () => {
   const wilcoId = core.getInput("wilcoId", { required: true });
-  // const wilcoId = await fs.readFile(".wilco", "utf8");
   const res = await fetch(
     `https://46edd159844c.ngrok.io/prs/${wilcoId}/actions`
   );
@@ -7598,12 +7596,16 @@ const runActions = async () => {
   }
 };
 
-try {
-  runActions();
-} catch (error) {
-  core.error("Wilco checks failed");
-  core.setFailed(error.message);
-}
+const main = async () => {
+  try {
+    await runActions();
+  } catch (error) {
+    core.error("Wilco checks failed");
+    core.setFailed(error.message);
+  }
+};
+
+main();
 
 })();
 

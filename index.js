@@ -11,18 +11,18 @@ const runActions = async () => {
   );
   const body = await res.json();
   for (let item of body) {
-    try {
-      const { cmd, ...args } = item;
-      await exec.exec(cmd, null, args);
-    } catch (error) {
-      core.error("Wilco checks failed");
-      core.setFailed(error.message);
-    }
+    const { cmd, ...args } = item;
+    await exec.exec(cmd, null, args);
   }
 };
 
-try {
-  runActions();
-} catch (error) {
-  core.setFailed(error.message);
-}
+const main = async () => {
+  try {
+    await runActions();
+  } catch (error) {
+    core.error("Wilco checks failed");
+    core.setFailed(error.message);
+  }
+};
+
+main();
