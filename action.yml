@@ -1,8 +1,8 @@
-name: "Hello World"
-description: "Greet someone and record the time"
-outputs:
-  status: # id of output
-    description: "The status of the action"
+name: "Wilco"
+description: "Run Wilco checks for this specific simulation"
+inputs:
+  wilcoId:
+    description: "Wilco user id"
 runs:
   using: "node12"
   main: "dist/index.js"

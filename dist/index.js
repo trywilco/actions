@@ -7583,32 +7583,26 @@ const exec = __nccwpck_require__(5697);
 const github = __nccwpck_require__(2970);
 
 const fetch = __nccwpck_require__(3154);
+const { promises: fs } = __nccwpck_require__(5747);
 
-const test = async () => {
-  const res = await fetch("https://46edd159844c.ngrok.io/prs/check");
-  const body = await res.text();
-
-  console.log({ body });
-
-  await exec.exec("node index.js");
+const runActions = async () => {
+  const wilcoId = core.getInput("wilcoId", { required: true });
+  // const wilcoId = await fs.readFile(".wilco", "utf8");
+  const res = await fetch(
+    `https://46edd159844c.ngrok.io/prs/${wilcoId}/actions`
+  );
+  const body = await res.json();
+  for (let item of body) {
+    const { cmd, ...args } = item;
+    await exec.exec(cmd, null, args);
+  }
 };
 
 try {
-  console.log("starting");
-  // `who-to-greet` input defined in action metadata file
-  // const nameToGreet = core.getInput("who-to-greet");
-  // console.log(`Hello ${nameToGreet}!`);
-  // test();
-  // const time = new Date().toTimeString();
-  // core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  console.log({ context: github.context });
-  const number = github.context.pull.number;
-  console.log({ number });
-  // const payload = JSON.stringify(github.context.payload, undefined, 2);
-  // console.log(`The event payload: ${payload}`);
+  runActions();
 } catch (error) {
-  // core.setFailed(error.message);
+  core.error("Wilco checks failed");
+  core.setFailed(error.message);
 }
 
 })();
