@@ -18,7 +18,7 @@ const runActions = async () => {
   }
 };
 
-const runActions = async () => {
+const main = async () => {
   try {
     await runActions();
   } catch (error) {
