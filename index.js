@@ -18,9 +18,13 @@ const runActions = async () => {
   }
 };
 
-try {
-  runActions();
-} catch (error) {
-  core.error("Wilco checks failed");
-  core.setFailed(error.message);
-}
+const runActions = async () => {
+  try {
+    await runActions();
+  } catch (error) {
+    core.error("Wilco checks failed");
+    core.setFailed(error.message);
+  }
+};
+
+main();
