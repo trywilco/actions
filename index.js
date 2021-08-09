@@ -7,7 +7,7 @@ const fetch = require("node-fetch");
 const runActions = async () => {
   const wilcoId = core.getInput("wilcoId", { required: true });
   const res = await fetch(
-    `https://46edd159844c.ngrok.io/prs/${wilcoId}/actions`
+    `https://wilco-engine.herokuapp.com/prs/${wilcoId}/actions`
   );
   const body = await res.json();
   for (let item of body) {
