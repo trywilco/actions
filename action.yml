@@ -1,9 +1,5 @@
 name: "Wilco"
 description: "Run Wilco checks for this specific simulation"
-inputs:
-  wilcoId:
-    description: "Wilco user id"
-    required: true
 runs:
   using: "node12"
   main: "dist/index.js"

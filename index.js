@@ -1,11 +1,12 @@
 const core = require("@actions/core");
 const exec = require("@actions/exec");
 const github = require("@actions/github");
+const { promises: fs } = require("fs");
 
 const fetch = require("node-fetch");
 
 const runActions = async () => {
-  const wilcoId = core.getInput("wilcoId", { required: true });
+  const wilcoId = await fs.readFile(".wilco", "utf8");
   const res = await fetch(
     `https://wilco-engine.herokuapp.com/prs/${wilcoId}/actions`
   );
