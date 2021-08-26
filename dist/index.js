@@ -3576,9 +3576,9 @@ const runActions = async () => {
   const body = await res.json();
   for (let item of body) {
     const { cmd, ...args } = item;
-    core.debug(`Starting: ${{ cmd, args }}`);
-    await exec.exec(cmd, null, args);
-    core.debug(`Done: ${{ cmd, args }}`);
+    // core.debug(`Starting: ${{ cmd, args }}`);
+    // await exec.exec(cmd, null, args);
+    // core.debug(`Done: ${{ cmd, args }}`);
   }
 };
 
