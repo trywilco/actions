@@ -12,9 +12,9 @@ const runActions = async () => {
   const body = await res.json();
   for (let item of body) {
     const { cmd, ...args } = item;
-    core.info(`Starting: ${cmd} ${args}`);
+    core.info(`Starting: ${cmd} ${JSON.stringify(args)}`);
     await exec.exec(cmd, null, args);
-    core.info(`Done: ${cmd} ${args}`);
+    core.info(`Done: ${cmd}`);
   }
 };
 
