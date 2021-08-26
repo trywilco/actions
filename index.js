@@ -12,17 +12,17 @@ const runActions = async () => {
   const body = await res.json();
   for (let item of body) {
     const { cmd, ...args } = item;
-    // core.debug(`Starting: ${{ cmd, args }}`);
-    // await exec.exec(cmd, null, args);
-    // core.debug(`Done: ${{ cmd, args }}`);
+    core.info(`Starting: ${{ cmd, args }}`);
+    await exec.exec(cmd, null, args);
+    core.info(`Done: ${{ cmd, args }}`);
   }
 };
 
 const main = async () => {
   try {
-    core.debug("Starting all");
+    core.info("Starting all");
     await runActions();
-    core.debug("Done all");
+    core.info("Done all");
   } catch (error) {
     core.error("Wilco checks failed");
     core.setFailed(error.message);
