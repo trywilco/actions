@@ -12,17 +12,13 @@ const runActions = async () => {
   const body = await res.json();
   for (let item of body) {
     const { cmd, ...args } = item;
-    core.info(`Starting: ${cmd} ${JSON.stringify(args)}`);
-    await exec.exec(cmd, null, { listeners: { debug: console.log }, ...args });
-    core.info(`Done: ${cmd}`);
+    await exec.exec(cmd, null, args);
   }
 };
 
 const main = async () => {
   try {
-    core.info("Starting all");
     await runActions();
-    core.info("Done all");
   } catch (error) {
     core.error("Wilco checks failed");
     core.setFailed(error.message);
