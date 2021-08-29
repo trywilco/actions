@@ -3577,7 +3577,7 @@ const runActions = async () => {
   for (let item of body) {
     const { cmd, ...args } = item;
     core.info(`Starting: ${cmd} ${JSON.stringify(args)}`);
-    await exec.exec(cmd, null, args);
+    await exec.exec(cmd, null, { listeners: { debug: console.log }, ...args });
     core.info(`Done: ${cmd}`);
   }
 };
