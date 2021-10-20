@@ -3599,7 +3599,7 @@ const runActions = async () => {
     `https://d195-46-117-183-63.ngrok.io/prs/${wilcoId}/actions`
   );
   const body = await res.json();
-  runCommands(body);
+  await runCommands(body);
 };
 
 const main = async () => {
