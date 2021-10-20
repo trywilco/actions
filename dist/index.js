@@ -3568,16 +3568,27 @@ const { promises: fs } = __nccwpck_require__(747);
 
 const fetch = __nccwpck_require__(467);
 
+const runCommands = async cmds => {
+  for (let item of cmds) {
+    if (Array.isArray(item)) {
+      const results = await Promise.allSettled(item.map(runCommands));
+      if (results.every(r => r.status === "rejected")) {
+        throw new Error();
+      }
+    } else {
+      const { cmd, ...args } = item;
+      await exec.exec(cmd, null, args);
+    }
+  }
+};
+
 const runActions = async () => {
   const wilcoId = await fs.readFile(".wilco", "utf8");
   const res = await fetch(
-    `https://253e98fd5e72.ngrok.io/prs/${wilcoId}/actions`
+    `https://d195-46-117-183-63.ngrok.io/prs/${wilcoId}/actions`
   );
   const body = await res.json();
-  for (let item of body) {
-    const { cmd, ...args } = item;
-    await exec.exec(cmd, null, args);
-  }
+  runCommands(body);
 };
 
 const main = async () => {
