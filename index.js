@@ -9,7 +9,7 @@ const runCommands = async item => {
     let lastError;
     for (let cmd of item.or) {
       try {
-        runCommands(cmd);
+        await runCommands(cmd);
         // One successed
         return;
       } catch (e) {
@@ -21,7 +21,7 @@ const runCommands = async item => {
     }
   } else if (Array.isArray(item)) {
     for (let cmd of item) {
-      runCommands(cmd);
+      await runCommands(cmd);
     }
   } else {
     const { cmd, ...args } = item;
