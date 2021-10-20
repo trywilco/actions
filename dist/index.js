@@ -3571,7 +3571,7 @@ const fetch = __nccwpck_require__(467);
 const runActions = async () => {
   const wilcoId = await fs.readFile(".wilco", "utf8");
   const res = await fetch(
-    `https://253e98fd5e72.ngrok.io/prs/${wilcoId}/actions`
+    `https://d195-46-117-183-63.ngrok.io/prs/${wilcoId}/actions`
   );
   const body = await res.json();
   for (let item of body) {
