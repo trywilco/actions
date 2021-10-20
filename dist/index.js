@@ -3568,17 +3568,28 @@ const { promises: fs } = __nccwpck_require__(747);
 
 const fetch = __nccwpck_require__(467);
 
-const runCommands = async cmds => {
-  for (let item of cmds) {
-    if (Array.isArray(item)) {
-      const results = await Promise.allSettled(item.map(runCommands));
-      if (results.every(r => r.status === "rejected")) {
-        throw new Error();
+const runCommands = async item => {
+  if (item.hasOwnProperty("or")) {
+    let lastError;
+    for (let cmd of item.or) {
+      try {
+        runCommands(cmd);
+        // One successed
+        return;
+      } catch (e) {
+        lastError = e;
       }
-    } else {
-      const { cmd, ...args } = item;
-      await exec.exec(cmd, null, args);
     }
+    if (lastError) {
+      throw lastError;
+    }
+  } else if (Array.isArray(item)) {
+    for (let cmd of item) {
+      runCommands(cmd);
+    }
+  } else {
+    const { cmd, ...args } = item;
+    await exec.exec(cmd, null, args);
   }
 };
 
