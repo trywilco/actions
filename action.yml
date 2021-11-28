@@ -4,7 +4,7 @@ runs:
   using: "node12"
   main: "dist/index.js"
 inputs:
-  appEnv:
-    description: "The app environment"
+  owner:
+    description: "The github organization owener"
     required: false
-    default: "production"
+    default: "Staging-WilcoPartsUnlimited"
