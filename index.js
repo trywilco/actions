@@ -1,11 +1,15 @@
 const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
-const { host } = require("./config");
+
+const host =
+  process.env.GITHUB_REF_NAME === "main"
+    ? "https://wilco-engine.herokuapp.com"
+    : "https://wilco-engine-staging.herokuapp.com";
 
 const fetch = require("node-fetch");
 
-const runCommands = async item => {
+const runCommands = async (item) => {
   if (item.hasOwnProperty("or")) {
     let lastError;
     for (let cmd of item.or) {
