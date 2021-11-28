@@ -3,7 +3,7 @@ const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
 const host =
-  process.env.GITHUB_REF_NAME === "main"
+  core.getInput("appEnv") === "production"
     ? "https://wilco-engine.herokuapp.com"
     : "https://wilco-engine-staging.herokuapp.com";
 

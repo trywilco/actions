@@ -3,3 +3,8 @@ description: "Run Wilco checks for this specific simulation"
 runs:
   using: "node12"
   main: "dist/index.js"
+inputs:
+  appEnv:
+    description: "The app environment"
+    required: false
+    default: "production"
