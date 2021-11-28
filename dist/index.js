@@ -1,14 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 532:
-/***/ ((module) => {
-
-module.exports = { host: "https://wilco-engine-staging.herokuapp.com" };
-
-
-/***/ }),
-
 /***/ 351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -3573,11 +3565,15 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186);
 const exec = __nccwpck_require__(514);
 const { promises: fs } = __nccwpck_require__(747);
-const { host } = __nccwpck_require__(532);
+
+const host =
+  process.env.GITHUB_REF_NAME === "main"
+    ? "https://wilco-engine.herokuapp.com"
+    : "https://wilco-engine-staging.herokuapp.com";
 
 const fetch = __nccwpck_require__(467);
 
-const runCommands = async item => {
+const runCommands = async (item) => {
   if (item.hasOwnProperty("or")) {
     let lastError;
     for (let cmd of item.or) {
