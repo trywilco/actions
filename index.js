@@ -3,9 +3,9 @@ const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
 const host =
-  core.getInput("owner") === "WilcoPartsUnlimited"
-    ? "https://wilco-engine.herokuapp.com"
-    : "https://wilco-engine-staging.herokuapp.com";
+  core.getInput("owner") === "Staging-WilcoPartsUnlimited"
+    ? "https://wilco-engine-staging.herokuapp.com"
+    : "https://wilco-engine.herokuapp.com";
 
 const fetch = require("node-fetch");
 
