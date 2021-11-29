@@ -3567,9 +3567,9 @@ const exec = __nccwpck_require__(514);
 const { promises: fs } = __nccwpck_require__(747);
 
 const host =
-  core.getInput("owner") === "WilcoPartsUnlimited"
-    ? "https://wilco-engine.herokuapp.com"
-    : "https://wilco-engine-staging.herokuapp.com";
+  core.getInput("owner") === "Staging-WilcoPartsUnlimited"
+    ? "https://wilco-engine-staging.herokuapp.com"
+    : "https://wilco-engine.herokuapp.com";
 
 const fetch = __nccwpck_require__(467);
 
