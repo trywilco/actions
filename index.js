@@ -2,10 +2,16 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
+core.debug("Owner:");
+core.debug(core.getInput("owner"));
+
 const host =
   core.getInput("owner") === "WilcoPartsUnlimited"
     ? "https://wilco-engine.herokuapp.com"
     : "https://wilco-engine-staging.herokuapp.com";
+
+core.debug("host:");
+core.debug(host);
 
 const fetch = require("node-fetch");
 
