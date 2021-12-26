@@ -3,7 +3,7 @@ const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
 const host =
-  core.getInput("owner") === "Staging-WilcoPartsUnlimited"
+  core.getInput("owner") === "Staging-ObelusFamily"
     ? "https://wilco-engine-staging.herokuapp.com"
     : "https://wilco-engine.herokuapp.com";
 
