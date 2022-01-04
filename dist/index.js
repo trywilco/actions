@@ -3597,7 +3597,7 @@ const runCommands = async (item) => {
 
 const runActions = async () => {
   const wilcoId = await fs.readFile(".wilco", "utf8");
-  const res = await fetch(`${host}/prs/${wilcoId}/actions`);
+  const res = await fetch(`${host}/prs/${wilcoId.trim()}/actions`);
   const body = await res.json();
   await runCommands(body);
 };
