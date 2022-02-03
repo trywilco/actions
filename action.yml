@@ -1,10 +1,10 @@
 name: "Wilco"
 description: "Run Wilco checks for this specific simulation"
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"
 inputs:
   owner:
-    description: "The github organization owener"
+    description: "The github organization owner"
     required: false
     default: "Staging-WilcoPartsUnlimited"
