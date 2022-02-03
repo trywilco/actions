@@ -3566,10 +3566,7 @@ const core = __nccwpck_require__(186);
 const exec = __nccwpck_require__(514);
 const { promises: fs } = __nccwpck_require__(747);
 
-const host =
-  core.getInput("owner") === "Staging-WilcoPartsUnlimited"
-    ? "https://wilco-engine-staging.herokuapp.com"
-    : "https://wilco-engine.herokuapp.com";
+const host = "https://fca9-84-229-251-246.ngrok.io"
 
 const fetch = __nccwpck_require__(467);
 
