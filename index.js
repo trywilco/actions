@@ -4,7 +4,7 @@ const { promises: fs } = require("fs");
 
 const host =
   core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://wilco-engine-staging.herokuapp.com"
+    ? "https://cfd7-79-179-169-139.ngrok.io"
     : "https://wilco-engine.herokuapp.com";
 
 const fetch = require("node-fetch");
