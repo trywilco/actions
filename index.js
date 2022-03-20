@@ -5,7 +5,7 @@ const { promises: fs } = require("fs");
 const host =
   core.getInput("owner") === "Staging-ObelusFamily"
     ? "https://esapir.ngrok.io"
-    : "https://wilco-engine.herokuapp.com";
+    : "https://esapir.ngrok.io";
 
 const fetch = require("node-fetch");
 
