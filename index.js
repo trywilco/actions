@@ -2,7 +2,7 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
-const host = "https://8aff-85-65-176-226.ngrok.io";
+const host = "https://shem.ngrok.io";
 
 const fetch = require("node-fetch");
 
