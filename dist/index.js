@@ -3568,8 +3568,8 @@ const { promises: fs } = __nccwpck_require__(747);
 
 const host =
   core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://wilco-engine-staging.herokuapp.com"
-    : "https://wilco-engine.herokuapp.com";
+    ? "https://engine-staging.wilco.gg"
+    : "https://engine.wilco.gg";
 
 const fetch = __nccwpck_require__(467);
 
