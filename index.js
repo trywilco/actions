@@ -2,10 +2,7 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
-const host =
-  core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://eti.ngrok.io"
-    : "https://wilco-engine.herokuapp.com";
+const host = "https://eti.ngrok.io";
 
 const fetch = require("node-fetch");
 
