@@ -8,7 +8,7 @@ inputs:
     description: "The github organization owner"
     required: false
     default: "Staging-WilcoPartsUnlimited"
-  owner:
+  repo:
     description: "The github repository name"
     required: false
     default: "Anythink"
