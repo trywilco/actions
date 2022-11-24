@@ -3568,6 +3568,7 @@ const { promises: fs } = __nccwpck_require__(747);
 
 const host = () => {
    if (core.getInput("owner") === "Staging-ObelusFamily") {
+      console.log({repo: core.getInput("repo")});
      const company = core.getInput("repo").split["-"][0]; 
      if (company === "Anythink") {
        return "https://engine-staging.wilco.gg";
