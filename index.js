@@ -2,6 +2,12 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
+const host =
+  core.getInput("engine") || 
+  core.getInput("owner") === "Staging-ObelusFamily"
+    ? "https://engine-staging.wilco.gg"
+    : "https://engine.wilco.gg";
+    
 const host = () => {
    if (core.getInput("owner") === "Staging-ObelusFamily") {
      const company = core.getInput("repo").split("-")[0]; 
@@ -43,7 +49,7 @@ const runCommands = async (item) => {
 
 const runActions = async () => {
   const wilcoId = await fs.readFile(".wilco", "utf8");
-  const res = await fetch(`${host()}/prs/${wilcoId}/actions`);
+  const res = await fetch(`${host}/prs/${wilcoId}/actions`);
   const body = await res.json();
   await runCommands(body);
 };
