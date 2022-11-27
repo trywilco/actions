@@ -3566,10 +3566,8 @@ const core = __nccwpck_require__(186);
 const exec = __nccwpck_require__(514);
 const { promises: fs } = __nccwpck_require__(747);
 
-const host =
-  core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://engine-staging.wilco.gg"
-    : "https://engine.wilco.gg";
+const host = 
+  core.getInput("engine") || (core.getInput("owner") === "Staging-ObelusFamily" ? "https://engine-staging.wilco.gg" : "https://engine.wilco.gg");
 
 const fetch = __nccwpck_require__(467);
 
