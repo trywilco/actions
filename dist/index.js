@@ -3598,9 +3598,6 @@ const runCommands = async (item) => {
 
 const runActions = async () => {
   const wilcoId = await fs.readFile(".wilco", "utf8");
-  console.log({engine: core.getInput("engine")? "true" : "false"});
-  console.log({engine: core.getInput("engine").length});
-  console.log({host});
   const res = await fetch(`${host}/prs/${wilcoId}/actions`);
   const body = await res.json();
   await runCommands(body);
