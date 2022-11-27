@@ -7,18 +7,6 @@ const host =
   core.getInput("owner") === "Staging-ObelusFamily"
     ? "https://engine-staging.wilco.gg"
     : "https://engine.wilco.gg";
-    
-const host = () => {
-   if (core.getInput("owner") === "Staging-ObelusFamily") {
-     const company = core.getInput("repo").split("-")[0]; 
-     if (company === "Anythink") {
-       return "https://engine-staging.wilco.gg";
-     } else {
-       return `https://${company}.ngrok.io`;
-     }
-   }
-   return "https://engine.wilco.gg";
-}
 
 const fetch = require("node-fetch");
 
