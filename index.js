@@ -2,11 +2,8 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const { promises: fs } = require("fs");
 
-const host =
-  core.getInput("engine") || 
-  core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://engine-staging.wilco.gg"
-    : "https://engine.wilco.gg";
+const host = 
+  core.getInput("engine") || (core.getInput("owner") === "Staging-ObelusFamily" ? "https://engine-staging.wilco.gg" : "https://engine.wilco.gg");
 
 const fetch = require("node-fetch");
 
