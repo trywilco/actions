@@ -3567,9 +3567,7 @@ const exec = __nccwpck_require__(514);
 const { promises: fs } = __nccwpck_require__(747);
 
 const host =
-  core.getInput("owner") === "Staging-ObelusFamily"
-    ? "https://nivri.ngrok.io"
-    : "https://wilco-engine.herokuapp.com";
+  core.getInput("engine") || (core.getInput("owner") === "Staging-ObelusFamily" ? "https://nivri.ngrok.io" : "https://engine.wilco.gg");
 
 const fetch = __nccwpck_require__(467);
 

@@ -5,6 +5,9 @@ runs:
   main: "dist/index.js"
 inputs:
   owner:
-    description: "The github organization owener"
+    description: "The github organization owner"
     required: false
     default: "Staging-WilcoPartsUnlimited"
+  engine:
+    description: "Engine url"
+    required: false
