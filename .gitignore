@@ -1,0 +1,24 @@
+# Ignore build output
+build/
+node_modules/
+
+# Ignore temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore Github Action logs and artifacts
+/logs/
+/artifact/
+
+# Ignore editor files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Ignore system files
+.DS_Store
+desktop.ini
+
+
