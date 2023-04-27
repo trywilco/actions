@@ -1,7 +1,7 @@
 name: "Wilco"
 description: "Run Wilco checks for this specific simulation"
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"
 inputs:
   owner:
